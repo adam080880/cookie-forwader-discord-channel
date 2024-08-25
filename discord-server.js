@@ -18,6 +18,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cors());
 
+app.get('/', (req, res) => {
+  res.send('Ready');
+});
+
 app.post('/submit', (req, res) => {
   const {path, payload} = req.body;
 
