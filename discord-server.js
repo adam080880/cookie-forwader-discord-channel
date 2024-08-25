@@ -31,6 +31,6 @@ app.post('/submit', (req, res) => {
   res.send('OK');
 });
 
-app.listen(3000, () => {
+app.listen(80, () => {
   console.log('Server is ready');
 });
