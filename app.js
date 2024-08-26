@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const express = require('express');
 const cors = require('cors');
 const discord = require('discord.js');
@@ -6,6 +8,7 @@ const app = express();
 
 const TOKEN = process.env.DISCORD_TOKEN;
 const CHANNELID = process.env.DISCORD_CHANNEL_ID;
+console.log(TOKEN, CHANNELID);
 
 const client = new discord.Client({intents: ["Guilds", "GuildMessages"]});
 client.login(TOKEN);
