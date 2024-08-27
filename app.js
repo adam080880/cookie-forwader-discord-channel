@@ -29,8 +29,11 @@ app.post('/submit', async (req, res) => {
   const {path, payload} = req.body;
 
   const channel = await client.channels.fetch(CHANNELID);
+
+  console.log(channel);
   
   if (channel) {
+    console.log('test masuk sini kok')
     channel.send(`path: ${path}`);
     channel.send(`payload: ${payload}`);
   }
