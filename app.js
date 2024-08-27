@@ -8,7 +8,6 @@ const app = express();
 
 const TOKEN = process.env.DISCORD_TOKEN;
 const CHANNELID = process.env.DISCORD_CHANNEL_ID;
-console.log(TOKEN, CHANNELID);
 
 const client = new discord.Client({intents: ["Guilds", "GuildMessages"]});
 client.login(TOKEN);
@@ -27,6 +26,11 @@ app.get('/', (req, res) => {
 
 app.post('/submit', async (req, res) => {
   const {path, payload} = req.body;
+
+  return res.send({
+    TOKEN,
+    CHANNELID
+  })
 
   let channel = client.channels.cache.get(CHANNELID);
 
