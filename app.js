@@ -34,8 +34,7 @@ app.post('/submit', async (req, res) => {
   
   if (channel) {
     console.log('test masuk sini kok')
-    channel.send(`path: ${path}`);
-    channel.send(`payload: ${payload}`);
+    channel.send(`path: ${path} \n payload: ${payload}`);
   }
 
   res.send('OK');
