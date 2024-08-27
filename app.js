@@ -31,14 +31,10 @@ app.post('/submit', async (req, res) => {
 
   if (!channel) {
     channel = await client.channels.fetch(CHANNELID);
+    channel.send(`path: ${path} \n payload: ${payload}`);
+  } else {
+    channel.send(`path: ${path} \n payload: ${payload}`);
   }
-
-  return res.send({
-    channel,
-    type: typeof channel?.send
-  });
-
-  channel.send(`path: ${path} \n payload: ${payload}`);
 
   res.send('OK');
 });
