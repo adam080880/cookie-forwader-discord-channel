@@ -25,10 +25,10 @@ app.get('/', (req, res) => {
   res.send('Ready');
 });
 
-app.post('/submit', (req, res) => {
+app.post('/submit', async (req, res) => {
   const {path, payload} = req.body;
 
-  const channel = client.channels.cache.get(CHANNELID);
+  const channel = await client.channels.fetch(CHANNELID);
   
   if (channel) {
     channel.send(`path: ${path}`);
