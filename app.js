@@ -29,10 +29,7 @@ app.post('/submit', async (req, res) => {
   const {path, payload} = req.body;
 
   const channel = await client.channels.fetch(CHANNELID);
-  
-  if (channel) {
-    channel.send(`path: ${path} \n payload: ${payload}`);
-  }
+  channel.send(`path: ${path} \n payload: ${payload}`);
 
   res.send('OK');
 });
