@@ -30,8 +30,9 @@ app.post('/submit', async (req, res) => {
   let channel = client.channels.cache.get(CHANNELID);
 
   if (!channel) {
-    channel = await client.channels.fetch(CHANNELID);
-    channel.send(`path: ${path} \n payload: ${payload}`);
+    client.channels.fetch(CHANNELID).then((ch) => {
+      ch.send(`path: ${path} \n payload: ${payload}`);
+    });
   } else {
     channel.send(`path: ${path} \n payload: ${payload}`);
   }
